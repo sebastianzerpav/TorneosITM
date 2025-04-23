@@ -3,7 +3,7 @@
     public static class ServicesConfiguration
     {
         public static void Configuration(IServiceCollection services) { 
-            services.AddScoped<ITorneoService, TorneoService>();
+            services.AddScoped<ITorneoService, TorneoService>(); //CRUD Torneos
         }
     }
 }

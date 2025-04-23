@@ -6,6 +6,7 @@ namespace TorneosITM.Services
 {
     public class TorneoService : ITorneoService
     {
+        //CRUD Torneos
         public readonly AppDbContext context;
         public TorneoService(AppDbContext context) { 
             this.context = context;

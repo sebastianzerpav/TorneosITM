@@ -8,6 +8,7 @@ namespace TorneosITM.Controllers
     [ApiController]
     public class TorneosController : ControllerBase
     {
+        //CRUD Torneos
         private readonly ITorneoService torneoService;
         public TorneosController(ITorneoService torneoService) { 
             this.torneoService = torneoService;
