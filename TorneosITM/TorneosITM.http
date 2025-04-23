@@ -1,0 +1,6 @@
+@TorneosITM_HostAddress = http://localhost:5270
+
+GET {{TorneosITM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
