@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TorneosITM.Data.Models;
 using TorneosITM.Services;
 
 namespace TorneosITM.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TorneosController : ControllerBase
@@ -13,7 +15,7 @@ namespace TorneosITM.Controllers
         public TorneosController(ITorneoService torneoService) { 
             this.torneoService = torneoService;
         }
-
+    
         [HttpPost("Insert")]
         public async Task<IActionResult> Insert([FromBody] Torneo torneo)
         {
@@ -53,6 +55,7 @@ namespace TorneosITM.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("GetByType")]
         public async Task<IActionResult> GetByType([FromQuery] string type)
         {
@@ -64,6 +67,7 @@ namespace TorneosITM.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("GetByName")]
         public async Task<IActionResult> GetByName([FromQuery] string name)
         {
@@ -75,6 +79,7 @@ namespace TorneosITM.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("GetByDate")]
         public async Task<IActionResult> GetByDate([FromQuery] DateOnly date)
         {

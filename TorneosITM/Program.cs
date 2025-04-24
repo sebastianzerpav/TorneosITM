@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 DbConfiguration.Configuration(builder.Services, builder.Configuration);
 //Services
 ServicesConfiguration.Configuration(builder.Services);
+//Authentication and Authorization Configuration
+ServicesConfiguration.AuthConfiguration(builder.Configuration, builder.Services);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -26,6 +28,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//Auth
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
